@@ -3,7 +3,22 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+@font-face {
+  font-family: BSCLight;
+  src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-Light.ttf);
+}
+@font-face {
+  font-family: BSCBold;
+  src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: BSCSBold;
+  src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-ExtraBold.ttf);
+}
+@font-face {
+  font-family: BSCRegular;
+  src: url(/Barlow_Semi_Condensed/BarlowSemiCondensed-Regular.ttf);
+}
 body {
   font-size: 10px;
   background: hsl(210, 46%, 95%);
@@ -12,13 +27,18 @@ body {
 .testimonials {
   padding: 50px 15px;
   display: grid;
-  row-gap: 1rem;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-areas: 'T1'
+                       'T2'
+                       'T3'
+                       'T4'
+                       'T5' ;
 }
 
 .testimonial {
   padding: 2rem;
   border-radius: .8rem;
-
+  margin-bottom: 1rem;
 }
 .testimonial-reviewer {
   display: flex;
@@ -34,16 +54,22 @@ body {
   color: hsl(0, 0%, 100%);
   font-size: .8rem;
   padding-bottom: .4rem;
+  font-family: BSCSBold;
 }
-.testimonial-reviewer p { font-size: .8rem;}
+.testimonial-reviewer p { 
+  font-size: .8rem;
+  font-family: BSCLight;
+}
 .testimonial > p {
   padding-bottom: 1rem;
   font-weight: 900;
   font-size: 1.2rem;
   color: #ffffff;
+  font-family: BSCBold;
 }
 .testimonial q {
   font-size: 1rem;
+  font-family: BSCRegular;
 }
 .testimonial-1 { 
   background:url(/images/bg-pattern-quotation.svg) no-repeat top , hsl(263, 55%, 52%);
@@ -63,7 +89,8 @@ body {
   background-color: hsl(0, 0%, 100%);
   grid-area: T3;
 }
-.testimonial-3 .testimonial-reviewer h1, .testimonials .testimonial-3 > p {
+.testimonial-3 .testimonial-reviewer h1,
+ .testimonials .testimonial-3 > p {
   color :hsl(217, 19%, 25%);
 }
 .testimonial-3 .testimonial-reviewer p { color: hsl(0, 0%, 50%);}
@@ -85,4 +112,33 @@ body {
 .testimonial-5 .testimonial-reviewer p { color: hsl(0, 0%, 50%);}
 .testimonial-5 q { color: hsl(0, 0%, 70%);}
 
-@media screen 
+@media screen and (min-width: 700px) {
+  .testimonials {
+    width: 90%;
+    height: 50%;
+   margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: 'T1 T1 T2'
+                         'T3 T4 T4' 
+                         'T5 T5 T5';
+    gap: 1rem;
+    padding: 3rem 0 0 0;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .testimonials {
+    width: 80%;
+    height: 50%;
+   margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: 'T1 T1 T2 T5'
+                         'T3 T4 T4 T5' ;
+    gap: 1rem;
+    padding: 3rem 0 0 0;
+  }
+ }
